@@ -160,6 +160,18 @@ a {
   flex-shrink: 0;
 }
 
+body.quiet-gathering-body .qg-toggle {
+  all: unset;
+  display: block;
+  position: relative;
+  width: 56px;
+  height: 30px;
+  border-radius: 999px;
+  cursor: pointer;
+  background-color: rgba(70, 40, 42, 0.7);
+}
+
+
 /* ------------------------------
    Hero
 ------------------------------ */
@@ -383,11 +395,152 @@ font-size: 0.95rem;
 }
 }
 
-
 /* ------------------------------
    Quiet Gathering
 ------------------------------ */
 
-.quiet-gathering-page {
-  padding-top: 20px;
+body.quiet-gathering-body .site-shell,
+body.quiet-gathering-body .page,
+body.quiet-gathering-body .quiet-gathering-layout,
+body.quiet-gathering-body .page-shell,
+body.quiet-gathering-body .quiet-gathering-section,
+body.quiet-gathering-body .quiet-gathering-frame,
+body.quiet-gathering-body .quiet-gathering-inner {
+  width: 100%;
+  max-width: none;
+}
+
+body.quiet-gathering-body .page {
+  min-height: 100vh;
+  margin: 0;
+}
+
+body.quiet-gathering-body .quiet-gathering-layout {
+  flex: 1;
+  min-height: 100vh;
+}
+
+body.quiet-gathering-body .page-shell {
+  flex: 1;
+  display: flex;
+  padding: 0;
+}
+
+body.quiet-gathering-body .quiet-gathering-section,
+body.quiet-gathering-body .quiet-gathering-frame,
+body.quiet-gathering-body .quiet-gathering-inner {
+  flex: 1;
+}
+
+/* FORCE knob color ABOVE global resets */
+body.quiet-gathering-body .qg-toggle-knob {
+  background: #f7e7ce !important;
+}
+
+body.quiet-gathering-body {
+  background: none;
+}
+
+body.quiet-gathering-body .page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+body.quiet-gathering-body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('/assets/qg_welcome.png') center / cover no-repeat;
+  z-index: -2;
+  transition: background 0.8s ease;
+}
+
+body.quiet-gathering-body.sky-entered::before {
+  background: url('/assets/qg_yourlight.png') center / cover no-repeat;
+}
+
+body.quiet-gathering-body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: -1;
+  transition: background 0.8s ease;
+}
+
+body.quiet-gathering-body.sky-entered::after {
+  background: rgba(12, 7, 13, 0.58);
+}
+
+.quiet-gathering-layout {
+  min-height: calc(100vh - 1.5rem);
+}
+
+.current-page {
+  opacity: 0.95;
+}
+
+body.quiet-gathering-body .page-shell {
+  background: transparent;
+  padding: 0;
+}
+
+body.quiet-gathering-body .quiet-gathering-section {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+body.quiet-gathering-body .quiet-gathering-frame {
+  width: 100%;
+  max-width: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+body.quiet-gathering-body .quiet-gathering-inner {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* keep the app embedded instead of full screen */
+body.quiet-gathering-body #root {
+  width: 100%;
+  min-height: calc(100vh - 40px);
+}
+
+body.quiet-gathering-body #root > div {
+  min-height: calc(100vh - 40px);
+  height: auto !important;
+  max-height: none !important;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .page-shell {
+    padding: 1rem 1rem 2rem;
+  }
+
+  .quiet-gathering-frame {
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  .quiet-gathering-inner {
+    max-width: 100%;
+  }
+
+  #root {
+    min-height: 500px;
+  }
+}
+
+body.quiet-gathering-body #root,
+body.quiet-gathering-body #root > div {
+  background: transparent !important;
 }
