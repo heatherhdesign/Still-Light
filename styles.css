@@ -399,54 +399,72 @@ font-size: 0.95rem;
    Quiet Gathering
 ------------------------------ */
 
-body.quiet-gathering-body .site-shell,
-body.quiet-gathering-body .page,
-body.quiet-gathering-body .quiet-gathering-layout,
-body.quiet-gathering-body .page-shell,
-body.quiet-gathering-body .quiet-gathering-section,
-body.quiet-gathering-body .quiet-gathering-frame,
-body.quiet-gathering-body .quiet-gathering-inner {
-  width: 100%;
-  max-width: none;
-}
-
-body.quiet-gathering-body .page {
-  min-height: 100vh;
-  margin: 0;
-}
-
-body.quiet-gathering-body .quiet-gathering-layout {
-  flex: 1;
-  min-height: 100vh;
-}
-
-body.quiet-gathering-body .page-shell {
-  flex: 1;
-  display: flex;
-  padding: 0;
-}
-
-body.quiet-gathering-body .quiet-gathering-section,
-body.quiet-gathering-body .quiet-gathering-frame,
-body.quiet-gathering-body .quiet-gathering-inner {
-  flex: 1;
-}
-
-/* FORCE knob color ABOVE global resets */
-body.quiet-gathering-body .qg-toggle-knob {
-  background: #f7e7ce !important;
-}
-
 body.quiet-gathering-body {
+  margin: 0;
   background: none;
+  overflow: hidden;
 }
 
+/* Outer shell stays full width */
+body.quiet-gathering-body .site-shell {
+  min-height: 100vh;
+  width: 100%;
+  max-width: none;
+}
+
+/* Page = nav + stage */
 body.quiet-gathering-body .page {
   width: 100%;
   max-width: none;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 0.7rem);
 }
 
+/* Stage under nav */
+body.quiet-gathering-body .page-shell,
+body.quiet-gathering-body .quiet-gathering-layout {
+  flex: 1 1 auto;
+  min-height: 0 !important;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Inner wrappers */
+body.quiet-gathering-body .quiet-gathering-section,
+body.quiet-gathering-body .quiet-gathering-frame,
+body.quiet-gathering-body .quiet-gathering-inner,
+body.quiet-gathering-body #root,
+body.quiet-gathering-body #root > div {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  min-height: 0 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Let React fill the available stage without forcing another viewport */
+body.quiet-gathering-body #root,
+body.quiet-gathering-body #root > div {
+  height: 100%;
+}
+
+/* Background image system */
 body.quiet-gathering-body::before {
   content: "";
   position: fixed;
@@ -473,74 +491,58 @@ body.quiet-gathering-body.sky-entered::after {
   background: rgba(12, 7, 13, 0.58);
 }
 
-.quiet-gathering-layout {
-  min-height: calc(100vh - 1.5rem);
+/* Prevent shared page-state dimming */
+body.quiet-gathering-body .current-page {
+  opacity: 1 !important;
 }
 
-.current-page {
-  opacity: 0.95;
+/* Hide footer only here */
+body.quiet-gathering-body .site-footer {
+  display: none !important;
 }
 
-body.quiet-gathering-body .page-shell {
-  background: transparent;
-  padding: 0;
+/* Toggle knob */
+body.quiet-gathering-body .qg-toggle-knob {
+  background: #f7e7ce !important;
 }
 
-body.quiet-gathering-body .quiet-gathering-section {
+/* Info screen */
+body.quiet-gathering-body .qg-info-screen {
   width: 100%;
-  max-width: none;
-  margin: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: transparent !important;
 }
 
-body.quiet-gathering-body .quiet-gathering-frame {
+body.quiet-gathering-body .qg-info-content {
   width: 100%;
-  max-width: none;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  max-width: 48rem;
+  text-align: center;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  transform: translateY(-6rem);
 }
 
-body.quiet-gathering-body .quiet-gathering-inner {
+/* Exit screen */
+body.quiet-gathering-body .qg-exit-content {
+  box-sizing: border-box;
+}
+
+/* Constellation screen */
+body.quiet-gathering-body .qg-constellation-screen {
+  position: relative;
   width: 100%;
-  max-width: none;
-  margin: 0;
+  min-height: calc(100svh - 7.5rem);
+  overflow: hidden;
 }
-
-/* keep the app embedded instead of full screen */
-body.quiet-gathering-body #root {
-  width: 100%;
-  min-height: calc(100vh - 40px);
-}
-
-body.quiet-gathering-body #root > div {
-  min-height: calc(100vh - 40px);
-  height: auto !important;
-  max-height: none !important;
-}
-
-/* Mobile */
 
 @media (max-width: 768px) {
-  .page-shell {
-    padding: 1rem 1rem 2rem;
+  body.quiet-gathering-body .qg-constellation-screen {
+    min-height: calc(100svh - 8.5rem);
   }
-
-  .quiet-gathering-frame {
-    padding: 1rem;
-    border-radius: 20px;
-  }
-
-  .quiet-gathering-inner {
-    max-width: 100%;
-  }
-
-  #root {
-    min-height: 500px;
-  }
-}
-
-body.quiet-gathering-body #root,
-body.quiet-gathering-body #root > div {
-  background: transparent !important;
 }
