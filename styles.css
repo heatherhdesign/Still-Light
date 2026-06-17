@@ -469,13 +469,13 @@ body.quiet-gathering-body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url('/assets/qg_welcome.png') center / cover no-repeat;
+  background: url('./assets/qg_welcome.png') center / cover no-repeat;
   z-index: -2;
   transition: background 0.8s ease;
 }
 
 body.quiet-gathering-body.sky-entered::before {
-  background: url('/assets/qg_yourlight.png') center / cover no-repeat;
+  background: url('./assets/qg_yourlight.png') center / cover no-repeat;
 }
 
 body.quiet-gathering-body::after {
