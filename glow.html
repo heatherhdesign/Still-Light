@@ -14,13 +14,26 @@
   <!--Main stylesheet-->
   <link rel="stylesheet" href="styles.css" />
 </head>
+<script>
+  const brandLink = document.getElementById("brand-link");
+
+  if (brandLink) {
+    const isGitHubPages = window.location.hostname.includes("github.io");
+
+    brandLink.setAttribute(
+      "href",
+      isGitHubPages ? "/Still-Light/" : "index.html"
+    );
+  }
+</script>
+
 <body>
   <div class="site-shell">
     <div class="page">
 
       <header class="top-nav-wrap">
   <nav class="top-nav" aria-label="Main navigation">
-    <a href="./index.html" class="brand">Still-Light</a>
+    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
 
     <button
       class="menu-toggle"
