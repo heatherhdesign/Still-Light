@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still-Light</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+  />
+
+  <!--Main stylesheet-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="about-page">
+  <div class="site-shell">
+    <div class="page">
+    <header class="top-nav-wrap">
+    <nav class="top-nav" aria-label="Main navigation">
+
+    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button"
+    >
+      Menu
+    </button>
+
+    <ul class="nav-links" id="mobile-menu">
+      <li><a href="gathering.html">Quiet Gathering</a></li>
+      <li><a href="words.html">Words to Rest In</a></li>
+      <li><a href="glow.html">The Quiet Glow</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="about">
+    <p class="title">About</p>
+    <p>Still-Light is a quiet digital space designed for presence.</p>
+    <p>In many digital environments, interaction is expected—there are prompts to respond, actions to take, or paths to follow. Even in spaces intended for support, there can be an underlying pressure to engage, reflect, or find resolution.</p>
+    <p>Still-Light exists as an alternative to that experience.</p>
+    <p>Still-Light was created for those who may feel alone in their pain or trauma. Trauma can feel isolating, Still-Light suggests that no one is ever truly alone and that there is someone one out there who sees you, validates and understands your pain. It isn’t a place to fix or solve anything. There is no expectation to respond, reflect, or engage in a certain way.</p>
+    <p>Still-Light offers a gentle environment where someone can pause, look around, or simply exist for a moment, without pressure. Each space is shaped by trauma-informed principles, with an emphasis on choice, softness, and emotional safety.</p>
+    <p>And even in our darkest moments, there is still light.</p>
+  </div>
+</main>
+<footer class="site-footer">
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="approach.html">Approach</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+              <li><a href="https://www.hsquareddezins.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            </ul>
+            </nav>
+        <p class="footer-copy">© 2026 HSquaredDezins</p>
+        </div>
+</footer>
+</div>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+</script>
+</body>
+</html>

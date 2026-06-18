@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still-Light</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+  />
+
+  <!--Main stylesheet-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="approach-page">
+  <div class="site-shell">
+    <div class="page">
+
+    <!-- Navigation -->
+    <header class="top-nav-wrap">
+      <nav class="top-nav">
+        <a href="./index.html" class="brand">Still-Light</a>
+
+        <button class="menu-toggle">Menu</button>
+
+        <ul class="nav-links">
+          <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
+          <li><a href="words.html" class="rollover-nav">Words to Rest In</a></li>
+          <li><a href="glow.html" class="rollover-nav">The Quiet Glow</a></li>
+        </ul>
+      </nav>
+    </header>
+<main>
+  <div class="approach-inner">
+    <p class="title">Approach</p>
+
+    <div class="approach-content">
+      <div class="approach-column">
+        <p>Still-Light is shaped by a trauma-informed approach to digital design.</p>
+
+        <p>Rather than encouraging interaction or response, the experience is intentionally restrained. Each space is designed to reduce demand, allowing the user to engage, or not, on their own terms.</p>
+
+        <p><strong>Choice is central.</strong><br>
+        There are no required paths, no timed interactions, and no expectation to move forward. Navigation remains open and flexible, offering a sense of control without pressure.</p>
+      </div>
+
+      <div class="approach-column">
+        <p><strong>Nothing is asked to be given.</strong><br>
+        There is no need to share, respond, or explain. The experience does not assume readiness, and does not attempt to guide someone toward a specific outcome.</p>
+
+        <p><strong>Presence is enough.</strong><br>
+        Whether someone stays briefly or lingers, engages or remains still, the experience holds space without judgment or requirement.</p>
+
+        <p>In a digital landscape that often asks for attention, input, and reaction, Still-Light is designed to do the opposite. It creates room for quiet, for pause, and for moments of being that are self-directed and unobserved.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="approach.html">Approach</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+              <li><a href="https://www.hsquareddezins.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            </ul>
+            </nav>
+        <p class="footer-copy">© 2026 HSquaredDezins</p>
+        </div>
+</footer>
+</div>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+</script>
+</body>
+</html>

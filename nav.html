@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still-Light</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+  />
+
+  <!--Main stylesheet-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="site-shell">
+    <div class="page">
+        
+    <header class="top-nav-wrap">
+    <nav class="top-nav" aria-label="Main navigation">
+
+    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      type="button"
+    >
+      Menu
+    </button>
+
+    <ul class="nav-links" id="mobile-menu">
+      <li><a href="gathering.html">Quiet Gathering</a></li>
+      <li><a href="words.html">Words to Rest In</a></li>
+      <li><a href="glow.html">The Quiet Glow</a></li>
+    </ul>
+
+  </nav>
+</header>
+</div>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+</script>
+</body>
+</html>

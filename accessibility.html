@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still-Light</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+  />
+
+  <!--Main stylesheet-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="accessibility-page">
+  <div class="site-shell">
+    <div class="page">
+
+    <!-- Navigation -->
+    <header class="top-nav-wrap">
+      <nav class="top-nav">
+        <a href="./index.html" class="brand">Still-Light</a>
+
+        <button class="menu-toggle">Menu</button>
+
+        <ul class="nav-links">
+          <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
+          <li><a href="words.html" class="rollover-nav">Words to Rest In</a></li>
+          <li><a href="glow.html" class="rollover-nav">The Quiet Glow</a></li>
+        </ul>
+      </nav>
+    </header>
+<main>
+  <div class="accessibility-inner">
+    <p class="title">Accessibility</p>
+
+    <div class="accessibility-content">
+      <div class="accessibility-column">
+        <p>Still-Light is designed to be quiet, open, and accommodating, supporting engagement that feels manageable, self-directed, and puts the user at ease.</p>
+
+        <p><strong>A trauma-informed foundation</strong><br>
+        Accessibility within Still-Light is informed by principles outlined by the Substance Abuse and Mental Health Services Administration (SAMHSA), particularly safety, choice, and empowerment.</p>
+        <p>The experience is designed to reduce pressure and support different ways of being present, recognizing that accessibility includes emotional comfort, cognitive load, and the ability to engage on one’s own terms.</p>
+
+        <p><strong>What this looks like in practice.</strong><br>
+        Care has been taken to support:</p>
+        <ul>
+          <li>Clear, readable typography with intentional contrast</li>
+          <li>Simple, consistent navigation</li>
+          <li>Minimal motion and reduced visual noise</li>
+          <li>Responsive layouts across devices</li>
+          <li>Language that avoids urgency or demand</li>
+        </ul>
+        <p>Interactions remain optional, with no required paths or expected responses.</p>
+      </div>
+
+      <div class="accessibility-column">
+        <p><strong>Choice and presence</strong><br>
+        Aligned with SAMHSA’s emphasis on agency, users can move freely, pause, observe, or step away at any time.<br>Engagement is never assumed.</p>
+
+         <p><strong>An evolving presence</strong><br>Aligned with SAMHSA’s emphasis on agency, users can move freely, pause, observe, or step away at any time.<br>Engagement is never assumed.</p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="site-footer">
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="approach.html">Approach</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+              <li><a href="https://www.hsquareddezins.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            </ul>
+            </nav>
+        <p class="footer-copy">© 2026 HSquaredDezins</p>
+        </div>
+</footer>
+</div>
+</div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+</script>
+</body>
+</html>

@@ -25,6 +25,7 @@
   --radius-pill: 999px;
   --radius-lg: 28px;
   --radius-md: 20px;
+  --header: "Fraunces", serif;
 }
 
 *,
@@ -546,3 +547,254 @@ body.quiet-gathering-body .qg-constellation-screen {
     min-height: calc(100svh - 8.5rem);
   }
 }
+
+/* ------------------------------
+   About
+------------------------------ */
+.about-page {
+background: url('assets/sl_footermenu.png') center / cover no-repeat;
+font-family: "Public Sans", sans-serif;
+}
+.about { 
+  padding: 1rem 2rem;
+  max-width:950px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.4rem;
+  
+}
+
+.about .title {
+  font-family: var(--font-display);
+  font-size:36pt;
+  text-align: center;
+  padding-bottom: 1.5rem;
+
+}
+
+.about p {
+  margin-bottom: 1rem;
+}
+
+.about p:last-child {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.about-page .site-footer p, 
+.about-page .site-footer a {
+color: var(--text-main);
+}
+
+.about-page .footer-line{
+  background-color: var(--text-main); /*lighter tone*/
+  opacity: 0.3;
+}
+
+/* ------------------------------
+   Approach
+------------------------------ */
+.approach-page {
+background: url('assets/sl_footermenu.png') center / cover no-repeat;
+font-family: "Public Sans", sans-serif;
+width: 100%;
+}
+
+.approach-inner { 
+  padding: 1rem 2rem 3rem;
+  width: 100%;
+  max-width:1100px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.4rem;
+  
+}
+
+.approach-inner .title {
+  font-family: var(--font-display);
+  font-size:36pt;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.approach-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.approach-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.approach-column p {
+  text-align: left;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.approach p:last-child {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.approach-page .site-footer p, 
+.approach-page .site-footer a {
+color: var(--text-main);
+}
+
+.approach-page .footer-line{
+  background-color: var(--text-main); /*lighter tone*/
+  opacity: 0.3;
+}
+
+/* Mobile Break */
+
+@media (max-width: 900px) {
+  .approach-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .approach-inner .title {
+    font-size: 24pt;
+    margin-bottom: 2rem;
+  }
+
+  .approach-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .approach-column {
+    gap: 1.25rem;
+  }
+
+  .approach-column p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .approach-inner {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+}
+
+  .approach-inner .title {
+    font-size: 20pt;
+    margin-bottom: 1.5rem;
+  }
+
+  .approach-column p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  /* ------------------------------
+   Accessibility
+------------------------------ */
+.accessibility-page {
+background: url('assets/sl_footermenu.png') center / cover no-repeat;
+font-family: "Public Sans", sans-serif;
+width: 100%;
+}
+
+.accessibility-inner { 
+  padding: 1rem 2rem 3rem;
+  width: 100%;
+  max-width:1100px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.4rem;
+  
+}
+
+.accessibility-inner .title {
+  font-family: var(--font-display);
+  font-size:36pt;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.accessibility-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.accessibility-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.accessibility-column p {
+  text-align: left;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.accessibility p:last-child {
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.accessibility-page .site-footer p, 
+.accessibility-page .site-footer a {
+color: var(--text-main);
+}
+
+.accessibility-page .footer-line{
+  background-color: var(--text-main); /*lighter tone*/
+  opacity: 0.3;
+}
+
+/* Mobile Break */
+
+@media (max-width: 900px) {
+  .accessibility-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .accessibility-inner .title {
+    font-size: 24pt;
+    margin-bottom: 2rem;
+  }
+
+  .accessibility-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .accessibility-column {
+    gap: 1.25rem;
+  }
+
+  .accessibility-column p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .accessibility-inner {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+}
+
+  .accessibility-inner .title {
+    font-size: 20pt;
+    margin-bottom: 1.5rem;
+  }
+
+  .accessibility-column p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
