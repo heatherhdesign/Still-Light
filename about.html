@@ -18,38 +18,43 @@
 <body class="about-page">
   <div class="site-shell">
     <div class="page">
+
+    <!-- Navigation -->
     <header class="top-nav-wrap">
-    <nav class="top-nav" aria-label="Main navigation">
+      <nav class="top-nav">
+        <a href="./index.html" class="brand">Still-Light</a>
 
-    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
 
-    <button
-      class="menu-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      type="button"
-    >
-      Menu
-    </button>
-
-    <ul class="nav-links" id="mobile-menu">
-      <li><a href="gathering.html">Quiet Gathering</a></li>
-      <li><a href="words.html">Words to Rest In</a></li>
-      <li><a href="glow.html">The Quiet Glow</a></li>
-    </ul>
-  </nav>
-</header>
+        <ul class="nav-links">
+          <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
+          <li><a href="words.html" class="rollover-nav">Words to Rest In</a></li>
+          <li><a href="glow.html" class="rollover-nav">The Quiet Glow</a></li>
+        </ul>
+      </nav>
+    </header>
 <main>
-  <div class="about">
+  <div class="about-inner">
     <p class="title">About</p>
-    <p>Still-Light is a quiet digital space designed for presence.</p>
-    <p>In many digital environments, interaction is expected—there are prompts to respond, actions to take, or paths to follow. Even in spaces intended for support, there can be an underlying pressure to engage, reflect, or find resolution.</p>
-    <p>Still-Light exists as an alternative to that experience.</p>
-    <p>Still-Light was created for those who may feel alone in their pain or trauma. Trauma can feel isolating, Still-Light suggests that no one is ever truly alone and that there is someone one out there who sees you, validates and understands your pain. It isn’t a place to fix or solve anything. There is no expectation to respond, reflect, or engage in a certain way.</p>
+
+    <div class="about-content">
+      <div class="about-column">
+    <p>Still-Light is a digital space that offers support, validation, and quiet presence.</p>
+    <p>In many digital environments, interaction is required, responses are expected, actions are prompted, and paths are defined. Even in spaces intended for support, there can be an underlying pressure to engage, reflect, or find resolution.</p>
+    <p>There are many digital environments that exist to help trauma survivors, and they do this well. But what would it look like to offer support more quietly, for those who may be living with trauma, but who might not be ready to engage in a conventional way?</p>
+    <p>Still-Light exists as an answer to that question.</p>
+    </div>
+    <div class="about-column">
+    <p>It was created for those who may feel alone in their pain or trauma. Trauma can feel deeply isolating. Still-Light gently suggests that no one is ever truly alone—that there is someone out there who sees you, validates you, and understands your pain.</p>
+    <p>This is not a place to fix or solve anything. There is no expectation to respond, reflect, or engage in a specific way.</p>
     <p>Still-Light offers a gentle environment where someone can pause, look around, or simply exist for a moment, without pressure. Each space is shaped by trauma-informed principles, with an emphasis on choice, softness, and emotional safety.</p>
-    <p>And even in our darkest moments, there is still light.</p>
+    <p>Even in our darkest moments, there is still light.</p>
+    </div>
   </div>
-</main>
+  </div>
+  </main>
 <footer class="site-footer">
         <div class="footer-line"></div>
 
@@ -74,6 +79,28 @@
     if (brandLink) {
       const isGitHubPages = window.location.hostname.includes("github.io");
       brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
     }
   });
 </script>

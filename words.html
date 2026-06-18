@@ -23,14 +23,9 @@
   <nav class="top-nav" aria-label="Main navigation">
     <a href="index.html" class="brand" id="brand-link">Still-Light</a>
 
-    <button
-      class="menu-toggle"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      type="button"
-    >
-      Menu
-    </button>
+    <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
 
     <ul class="nav-links" id="mobile-menu">
       <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
@@ -49,10 +44,10 @@
         <div class="footer-content">
           <nav class="footer-nav" aria-label="Footer navigation">
             <ul>
-              <li><a href="about">About</a></li>
-              <li><a href="#">Approach</a></li>
-              <li><a href="#">Accessibility</a></li>
-              <li><a href="#">Portfolio</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="approach.html">Approach</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+              <li><a href="https://www.hsquareddezins.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
             </ul>
             </nav>
         <p class="footer-copy">© 2026 HSquaredDezins</p>
@@ -60,17 +55,37 @@
       </footer>
     </div>
   </div>
-  <script>
-  const brandLink = document.getElementById("brand-link");
+ <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
 
-  if (brandLink) {
-    const isGitHubPages = window.location.hostname.includes("github.io");
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
 
-    brandLink.setAttribute(
-      "href",
-      isGitHubPages ? "/Still-Light/" : "index.html"
-    );
-  }
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+    }
+  });
 </script>
 </body>
 </html>

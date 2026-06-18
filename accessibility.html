@@ -24,7 +24,9 @@
       <nav class="top-nav">
         <a href="./index.html" class="brand">Still-Light</a>
 
-        <button class="menu-toggle">Menu</button>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
 
         <ul class="nav-links">
           <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
@@ -44,9 +46,11 @@
         <p><strong>A trauma-informed foundation</strong><br>
         Accessibility within Still-Light is informed by principles outlined by the Substance Abuse and Mental Health Services Administration (SAMHSA), particularly safety, choice, and empowerment.</p>
         <p>The experience is designed to reduce pressure and support different ways of being present, recognizing that accessibility includes emotional comfort, cognitive load, and the ability to engage on one’s own terms.</p>
+        </div>
 
-        <p><strong>What this looks like in practice.</strong><br>
-        Care has been taken to support:</p>
+      <div class="accessibility-column">
+
+        <p><strong>What this looks like in practice.</strong></p>
         <ul>
           <li>Clear, readable typography with intentional contrast</li>
           <li>Simple, consistent navigation</li>
@@ -55,13 +59,9 @@
           <li>Language that avoids urgency or demand</li>
         </ul>
         <p>Interactions remain optional, with no required paths or expected responses.</p>
-      </div>
 
-      <div class="accessibility-column">
         <p><strong>Choice and presence</strong><br>
         Aligned with SAMHSA’s emphasis on agency, users can move freely, pause, observe, or step away at any time.<br>Engagement is never assumed.</p>
-
-         <p><strong>An evolving presence</strong><br>Aligned with SAMHSA’s emphasis on agency, users can move freely, pause, observe, or step away at any time.<br>Engagement is never assumed.</p>
       </div>
     </div>
   </div>
@@ -90,6 +90,28 @@
     if (brandLink) {
       const isGitHubPages = window.location.hostname.includes("github.io");
       brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
     }
   });
 </script>

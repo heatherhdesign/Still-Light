@@ -24,7 +24,9 @@
       <nav class="top-nav">
         <a href="./index.html" class="brand">Still-Light</a>
 
-        <button class="menu-toggle">Menu</button>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
 
         <ul class="nav-links">
           <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
@@ -41,20 +43,20 @@
       <div class="approach-column">
         <p>Still-Light is shaped by a trauma-informed approach to digital design.</p>
 
-        <p>Rather than encouraging interaction or response, the experience is intentionally restrained. Each space is designed to reduce demand, allowing the user to engage, or not, on their own terms.</p>
+        <p>Rather than encouraging interaction, the environment is intentionally guided by a “less is more” philosophy. Each space is designed to reduce demand, allowing the user to engage—or not—on their own terms.</p>
 
         <p><strong>Choice is central.</strong><br>
-        There are no required paths, no timed interactions, and no expectation to move forward. Navigation remains open and flexible, offering a sense of control without pressure.</p>
-      </div>
+        There are no required paths, no timed interactions, no gamification, and no expectation to move forward. Navigation remains open and flexible, offering a sense of control without pressure.</p>
+      
+        <p><strong>Nothing is asked to be given.</strong><br>
+        There is no need to share, respond, or explain. The environment does not assume readiness, nor does it attempt to guide the user toward a specific outcome.</p>
+        </div>
 
       <div class="approach-column">
-        <p><strong>Nothing is asked to be given.</strong><br>
-        There is no need to share, respond, or explain. The experience does not assume readiness, and does not attempt to guide someone toward a specific outcome.</p>
-
         <p><strong>Presence is enough.</strong><br>
         Whether someone stays briefly or lingers, engages or remains still, the experience holds space without judgment or requirement.</p>
 
-        <p>In a digital landscape that often asks for attention, input, and reaction, Still-Light is designed to do the opposite. It creates room for quiet, for pause, and for moments of being that are self-directed and unobserved.</p>
+        <p>In a digital landscape that often asks for attention, input, and reaction, Still-Light is designed to do the opposite. It creates room for quiet, for pause, and for moments that are self-directed and unobserved.</p>
       </div>
     </div>
   </div>
@@ -83,6 +85,28 @@
     if (brandLink) {
       const isGitHubPages = window.location.hostname.includes("github.io");
       brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
     }
   });
 </script>

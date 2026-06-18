@@ -21,7 +21,9 @@
       <nav class="top-nav">
         <a href="./index.html" class="brand">Still-Light</a>
 
-        <button class="menu-toggle">Menu</button>
+        <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
 
         <ul class="nav-links">
           <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
@@ -54,6 +56,37 @@
 
   <!-- React Build Script -->
   <script type="module" src="./gathering/dist/assets/index-BsMqXWh_.js"></script>
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
 
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+    }
+  });
+</script>
 </body>
 </html>
