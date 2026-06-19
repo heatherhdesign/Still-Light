@@ -20,7 +20,7 @@ const words = [
   "This can simply be a pause.",
   "You don’t have to figure anything out right now.",
   "There is space for you here.",
-  "You can stay, or you can leave.",
+  "You don't have to carry this alone",
   "You can look around, or close your eyes.",
   "You can engage, or simply be.",
   "You decide what this moment becomes.",
