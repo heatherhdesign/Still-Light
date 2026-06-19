@@ -648,7 +648,236 @@ body.quiet-gathering-body.menu-open .site-shell::before {
 }
 }
 
+/* ------------------------------
+   Words to Rest In
+------------------------------ */
 
+.words-page {
+  background: url('assets/sl-words.png') center / cover no-repeat;
+  font-family: "Public Sans", sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.words-page .site-shell {
+  min-height: 100vh;
+}
+
+.words-page .page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.words-page main {
+  flex: 1;
+  position: relative;
+  min-height: 72vh;
+}
+
+.words-page .site-footer {
+  margin-top: auto;
+}
+
+/* Entry state */
+
+.words-entry {
+  position: fixed;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  background: rgba(34, 43, 58, 0.22);
+  animation: entryVeil 4.8s ease-in-out forwards;
+}
+
+.words-entry p {
+  color: rgba(246, 238, 218, 0.82);
+  text-shadow: 0 0 10px rgba(246, 238, 218, 0.22);
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.15rem, 2vw, 1.8rem);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: entryText 4.2s ease-in-out forwards;
+  filter: drop-shadow(0 0 14px rgba(246, 238, 218, 0.16));
+}
+
+@keyframes entryVeil {
+  0% {
+    opacity: 1;
+  }
+
+  62% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes entryText {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  24% {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
+
+  68% {
+    opacity: 0.82;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* Animation controls */
+
+.words-inner {
+  padding: 1rem 2rem 3rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 1.4rem;
+}
+
+#word-container {
+  position: fixed;
+  top: 150px;
+  left: 7vw;
+  right: 7vw;
+  bottom: 145px;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floating-word {
+  position: absolute;
+  color: rgba(246, 238, 218, 0.88);
+  text-shadow: 0 0 10px rgba(246, 238, 218, 0.22);
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.05rem, 1.7vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.35;
+  max-width: 360px;
+  opacity: 0;
+  animation: wordDrift 8.5s ease-in-out forwards;
+  text-wrap: balance;
+  filter: drop-shadow(0 0 12px rgba(246, 238, 218, 0.18));
+}
+
+@keyframes wordDrift {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+
+  20% {
+    opacity: 0.88;
+    transform: translateY(0) scale(1);
+  }
+
+  68% {
+    opacity: 0.88;
+    transform: translateY(-4px) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.98);
+  }
+}
+
+/* Keep navigation and footer above floating words */
+
+.words-page .top-nav-wrap,
+.words-page .site-footer {
+  position: relative;
+  z-index: 5;
+}
+
+.words-page .site-footer p,
+.words-page .site-footer a {
+  color: var(--text-main);
+}
+
+.words-page .footer-line {
+  background-color: var(--text-main);
+  opacity: 0.3;
+}
+
+/* Mobile Break */
+
+@media (max-width: 900px) {
+  .words-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .words-inner .title {
+    font-size: 24pt;
+    margin-bottom: 2rem;
+  }
+
+  .words-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #word-container {
+    top: 135px;
+    left: 6vw;
+    right: 6vw;
+    bottom: 150px;
+  }
+
+  .floating-word {
+    font-size: clamp(1rem, 3vw, 1.45rem);
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .words-inner {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+
+  .words-inner .title {
+    font-size: 20pt;
+    margin-bottom: 1.5rem;
+  }
+
+  #word-container {
+    top: 125px;
+    left: 7vw;
+    right: 7vw;
+    bottom: 145px;
+  }
+
+  .floating-word {
+    font-size: clamp(0.95rem, 4.5vw, 1.25rem);
+    max-width: 260px;
+  }
+
+  .words-entry p {
+    font-size: clamp(1rem, 5vw, 1.45rem);
+  }
+}
 
 /* ------------------------------
    About

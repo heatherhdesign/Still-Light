@@ -11,19 +11,23 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
   />
 
+  <!--javascript-->
+  <script src="words.js" defer></script>
+  
   <!--Main stylesheet-->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="words-page">
   <div class="site-shell">
     <div class="page">
 
+<!-- Navigation -->
       <header class="top-nav-wrap">
-  <nav class="top-nav" aria-label="Main navigation">
-    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+      <nav class="top-nav" aria-label="Main navigation">
+      <a href="index.html" class="brand" id="brand-link">Still-Light</a>
 
-    <button class="menu-toggle" type="button" aria-expanded="false">
+      <button class="menu-toggle" type="button" aria-expanded="false">
           Menu
         </button>
 
@@ -35,8 +39,14 @@
   </nav>
 </header>
 
-      <main>
-      </main>
+<main>
+  <div class="words-entry" aria-hidden="true">
+    <p>Take a moment.</p>
+  </div>
+  <div class="words-inner"></div>
+  <div id="word-container"></div>
+</main>
+
 
       <footer class="site-footer">
         <div class="footer-line"></div>
