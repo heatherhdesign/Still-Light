@@ -412,7 +412,6 @@ body.menu-open::before {
   backdrop-filter: blur(3px);
   z-index: 900;
 }
-
   
 .nav-links.is-open {
   display: flex;
@@ -442,7 +441,6 @@ body.menu-open::before {
   width: 100%;
   text-align: center;
 }
-  
 
 .nav-links.is-open a {
   display: inline-block;
@@ -470,13 +468,29 @@ body.menu-open::before {
     gap: 1rem;
   }
 
-  .footer-nav ul {
-    justify-content: center;
-    gap: 1rem 1.5rem;
-  }
-
   .footer-copy {
     font-size: 0.7rem;
+  }
+  
+.footer-nav {
+    width: 100%;
+  }
+
+  .footer-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem 1.25rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-nav a {
+    white-space: nowrap;
+  }
+
+  .site-footer {
+    padding: 2rem 1.25rem;
   }
 }
 
@@ -941,7 +955,7 @@ body.glow-page-body .page {
 body.glow-page-body .glow-page {
   position: relative;
   min-height: 620px;
-  overflow: hidden;
+  overflow: visible;
   font-family: "Public Sans", sans-serif;
 
   display: flex;
@@ -1446,21 +1460,19 @@ color: var(--text-main);
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
-    overscroll-behavior-x: none;
+    overscroll-behavior-x: contain;
   }
 
   body {
     min-height: 100vh;
     min-height: 100svh;
     position: relative;
-    touch-action: pan-y;
   }
 
   .site-shell,
   .page {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
   }
 }
 
