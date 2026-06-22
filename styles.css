@@ -1010,8 +1010,35 @@ position: absolute;
   height: 100% !important;
 }
 
-/* Keep nav/footer above canvas */
-body.glow-page-body .top-nav-wrap,
+/* Keep nav above Quiet Glow canvas and mobile blur */
+body.glow-page-body .top-nav {
+  position: relative;
+  z-index: 1201;
+}
+
+body.glow-page-body .nav-links.is-open {
+  z-index: 1202;
+}
+
+body.glow-page-body .top-nav-wrap {
+  position: relative;
+  z-index: 1200;
+}
+
+body.glow-page-body .site-footer {
+  position: relative;
+  z-index: 10;
+}
+
+body.glow-page-body .top-nav {
+  position: relative;
+  z-index: 1201;
+}
+
+body.glow-page-body .nav-links.is-open {
+  z-index: 1202;
+}
+
 body.glow-page-body .site-footer {
   position: relative;
   z-index: 10;
@@ -1408,3 +1435,32 @@ color: var(--text-main);
     line-height: 1.65;
   }
 }
+
+/* ------------------------------
+   Mobile background stability
+------------------------------ */
+
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    position: relative;
+    touch-action: pan-y;
+  }
+
+  .site-shell,
+  .page {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
