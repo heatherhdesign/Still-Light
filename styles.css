@@ -36,8 +36,26 @@
 
 html,
 body {
-  min-height: 100%;
+  max-width: 100%;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main,
+section,
+div,
+header,
+footer {
+  max-width: 100%;
+}
+
+img,
+canvas,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 html {
@@ -55,6 +73,7 @@ body {
     var(--text-main) 92%
   );
   color: var(--text-main);
+  position: relative;
 }
 
 a {
@@ -64,6 +83,7 @@ a {
 
 .site-shell {
   min-height: 100vh;
+  min-height: 100svh;
   padding: 0.35rem;
 }
 
@@ -607,6 +627,11 @@ body.quiet-gathering-body .qg-constellation-screen {
 }
 
 @media (max-width: 768px) {
+  
+  body {
+    overscroll-behavior-x: none;
+  }
+
   body.quiet-gathering-body .qg-constellation-screen {
     min-height: calc(100svh - 8.5rem);
   }
@@ -825,6 +850,10 @@ body.quiet-gathering-body.menu-open .site-shell::before {
 /* Mobile Break */
 
 @media (max-width: 900px) {
+  body {
+    overscroll-behavior-x: none;
+  }
+
   .words-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
@@ -853,6 +882,9 @@ body.quiet-gathering-body.menu-open .site-shell::before {
 }
 
 @media (max-width: 600px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .words-inner {
     padding: 2rem 1.25rem 3.5rem;
   }
@@ -879,6 +911,170 @@ body.quiet-gathering-body.menu-open .site-shell::before {
   }
 }
 
+/* ------------------------------
+   Quiet Glow
+------------------------------ */
+
+body.glow-page-body {
+  background: radial-gradient(
+    circle at center,
+    #324654 0%,
+    #21313f 45%,
+    #111b27 100%
+  );
+}
+
+/* Keep wrapper backgrounds from creating the second rectangle */
+body.glow-page-body .site-shell,
+body.glow-page-body .page {
+  background: transparent;
+}
+
+/* Page layout: header / main / footer */
+body.glow-page-body .page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto minmax(620px, 1fr) auto;
+}
+
+/* Main area keeps height but no separate background */
+body.glow-page-body .glow-page {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  font-family: "Public Sans", sans-serif;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+}
+
+/* Your preferred composition */
+body.glow-page-body .glow-intro {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
+  color: rgba(244, 238, 226, 0.88);
+  transform: translateY(-8rem);
+}
+
+body.glow-page-body .glow-intro .title {
+  font-family: var(--font-display);
+  font-size: 36pt;
+  margin-bottom: 2rem;
+}
+
+body.glow-page-body .glow-intro p {
+  color: rgba(244, 238, 226, 0.72);
+}
+
+.glow-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Canvas belongs inside the main glow area */
+#glow-canvas {
+position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 90%,
+    transparent 98%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 90%,
+    transparent 98%
+  );
+}
+
+#glow-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Keep nav/footer above canvas */
+body.glow-page-body .top-nav-wrap,
+body.glow-page-body .site-footer {
+  position: relative;
+  z-index: 10;
+}
+
+.glow-page-body .site-footer p,
+.glow-page-body .site-footer a {
+  color: var(--text-main);
+}
+
+.glow-page-body .footer-line {
+  background-color: var(--text-main);
+  opacity: 0.3;
+}
+
+/* Mobile Break */
+
+@media (max-width: 900px) {
+  body {
+    overscroll-behavior-x: none;
+  }
+  .glow-inner {
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .glow-inner .title {
+    font-size: 24pt;
+    margin-bottom: 2rem;
+  }
+
+  .glow-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #glow-container {
+    top: 135px;
+    left: 6vw;
+    right: 6vw;
+    bottom: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    overscroll-behavior-x: none;
+  }
+  .glow-inner {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+
+  .glow-inner .title {
+    font-size: 20pt;
+    margin-bottom: 1.5rem;
+  }
+
+  #glow-container {
+    top: 125px;
+    left: 7vw;
+    right: 7vw;
+    bottom: 145px;
+  }
+}
 /* ------------------------------
    About
 ------------------------------ */
@@ -943,6 +1139,9 @@ color: var(--text-main);
 
 
 @media (max-width: 900px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .about-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
@@ -968,6 +1167,9 @@ color: var(--text-main);
 }
 
 @media (max-width: 600px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .about-inner {
     padding: 2rem 1.25rem 3.5rem;
   }
@@ -1046,6 +1248,9 @@ color: var(--text-main);
 /* Mobile Break */
 
 @media (max-width: 900px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .approach-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
@@ -1072,6 +1277,9 @@ color: var(--text-main);
 
 
 @media (max-width: 600px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .approach-inner {
     padding: 2rem 1.25rem 3.5rem;
   }
@@ -1154,6 +1362,9 @@ color: var(--text-main);
 /* Mobile Break */
 
 @media (max-width: 900px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .accessibility-inner {
     padding: 2.5rem 1.5rem 4rem;
   }
@@ -1180,6 +1391,9 @@ color: var(--text-main);
 
 
 @media (max-width: 600px) {
+  body {
+    overscroll-behavior-x: none;
+  }
   .accessibility-inner {
     padding: 2rem 1.25rem 3.5rem;
   }

@@ -15,13 +15,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body class="glow-page-body">
   <div class="site-shell">
     <div class="page">
 
       <header class="top-nav-wrap">
-  <nav class="top-nav" aria-label="Main navigation">
-    <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+        <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html" class="brand" id="brand-link">Still-Light</a>
 
     <button class="menu-toggle" type="button" aria-expanded="false">
           Menu
@@ -35,7 +35,13 @@
   </nav>
 </header>
 
-      <main>
+      <main class="glow-page">
+        <section class="glow-intro">
+          <p class="title">Quiet Glow</p>
+          <p>Stay for one breath, or many.</p>
+          <!--<button id="sound-toggle" onclick="toggleSound()">Sound: off</button>-->
+        </section>
+        <div id="glow-canvas"></div>
       </main>
 
       <footer class="site-footer">
@@ -55,6 +61,10 @@
       </footer>
     </div>
   </div>
+   <!--javascript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+  <script src="glow.js" defer></script>
  <script>
   window.addEventListener("DOMContentLoaded", () => {
     const brandLink = document.getElementById("brand-link");
