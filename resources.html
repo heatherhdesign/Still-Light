@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <base target="_blank">
+  <title>Still-Light</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+  />
+
+  <!--Main stylesheet-->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="resources-page">
+  <div class="site-shell">
+    <div class="page">
+
+      <header class="top-nav-wrap">
+        <nav class="top-nav" aria-label="Main navigation">
+        <a href="index.html" class="brand" id="brand-link">Still-Light</a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false">
+          Menu
+        </button>
+
+    <ul class="nav-links" id="mobile-menu">
+      <li><a href="gathering.html" class="rollover-nav">Quiet Gathering</a></li>
+      <li><a href="words.html" class="rollover-nav">Words to Rest In</a></li>
+      <li><a href="glow.html" class="rollover-nav">The Quiet Glow</a></li>
+      <li><a href="resources" class="rollover-nav">Resources</a></li>
+    </ul>
+  </nav>
+</header>
+
+      <main>
+        <div class="resources-top">
+            <p class="title">Resources</p>
+                <p>Still-Light is designed as a space for presence, reflection, and gentle connection—but it is not a substitute for professional care. If you are looking for support, you deserve access to people and services trained to help. The resources below are available if you want to talk, need assistance, or are seeking next steps.</p>
+
+                <p>If you are in immediate danger, please call 911 (U.S.) or your local emergency number. You can also reach out to:</p>
+        </div>
+        <div class="resources-content">
+        <div class="resources-column">
+                <p><strong>Immediate Support</strong><br>988 Suicide & Crisis Lifeline (U.S.)<br>Call or text 988<br>Chat: <a href="https://988lifeline.org" target="_blank" rel="noopener noreferrer">https://988lifeline.org</a><br>Available 24/7, free and confidential support</p>
+
+                <p><strong>Crisis Text Line</strong><br>Text<strong> HOME</strong> to<strong> 741741</strong> (U.S. & Canada)<br><a href="https://www.crisistextline.org" target="_blank" rel="noopener noreferrer">https://www.crisistextline.org</a><br>Connect with a trained counselor via text</p>
+
+                <p><strong>Sexual Assault & Trauma Support</strong><br>RAINN (Rape, Abuse & Incest National Network)<br><a href="https://www.rainn.org" target="_blank" rel="noopener noreferrer">https://www.rainn.org</a><br>Hotline: <strong>800-656-HOPE (4673)</strong><br>Live chat available online<br>Confidential support, information, and pathways to care</p>
+            
+                <p>National Sexual Violence Resource Center (NSVRC)<br><a href="https://www.nsvrc.org" target="_blank" rel="noopener noreferrer">https://www.nsvrc.org</a><br>Education, resources, and support tools</p>
+                </div>
+
+                <div class="resources-column">
+                <p><strong>Domestic Violence Support</strong><br>National Domestic Violence Hotline<br><a href="https://www.thehotline.org" target="_blank" rel="noopener noreferrer">https://www.thehotline.org</a><br>Call: 1-800-799-7233<br>Text: <strong>START</strong> to <strong>88788</strong><br>Live chat available<br>Support for anyone experiencing relationship abuse</p>
+
+                <p><strong>Additional Support</strong><br>SAMHSA National Helpline<br><a href="https://www.samhsa.gov/find-help/national-helpline" target="_blank" rel="noopener noreferrer">https://www.samhsa.gov/find-help/national-helpline</a><br>Call: <strong>1-800-662-HELP (4357)</strong><br>Treatment referral and information service (mental health & substance use)</p>
+                </div>
+                </div>
+                <div class="resources-bottom">
+                <p>You don’t have to move quickly. You don’t have to decide anything all at once. If any of these feel like a possible next step, they’re here for you, and if not, that’s okay too.</p>
+                </div>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-line"></div>
+
+        <div class="footer-content">
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="approach.html">Approach</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+              <li><a href="https://www.hsquareddezins.com/" target="_blank" rel="noopener noreferrer">Portfolio</a></li>
+            </ul>
+            </nav>
+        <p class="footer-copy">© 2026 HSquaredDezins</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+   <!--javascript-->
+  <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+  });
+  
+window.addEventListener("DOMContentLoaded", () => {
+    const brandLink = document.getElementById("brand-link");
+
+    if (brandLink) {
+      const isGitHubPages = window.location.hostname.includes("github.io");
+      brandLink.href = isGitHubPages ? "/Still-Light/index.html" : "./index.html";
+    }
+
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("is-open");
+  document.body.classList.toggle("menu-open");
+
+  const isOpen = navLinks.classList.contains("is-open");
+  menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+    }
+  });
+</script>
+</body>
+</html>
