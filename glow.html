@@ -36,14 +36,28 @@
   </nav>
 </header>
 
-      <main class="glow-page">
-        <section class="glow-intro">
-          <p class="title">Quiet Glow</p>
-          <p>Stay for one breath, or many.</p>
-          <!--<button id="sound-toggle" onclick="toggleSound()">Sound: off</button>-->
-        </section>
-        <div id="glow-canvas"></div>
-      </main>
+    <main class="glow-page">
+      <section class="glow-intro">
+        <p class="title">Quiet Glow</p>
+        <p>Stay for one breath, or many.</p>
+        <button
+        id="sound-toggle" 
+        class="sound-toggle" 
+        type="button" 
+        onclick="toggleSound()" 
+        aria-pressed="false"
+        >
+      <span class="sound-toggle__label">Sound</span>
+
+      <span class="sound-toggle__track">
+      <span class="sound-toggle__thumb"></span>
+      </span>
+
+      <span class="sound-toggle__state">Off</span>
+    </button>
+  </section>
+    <div id="glow-canvas"></div>
+  </main>
 
       <footer class="site-footer">
         <div class="footer-line"></div>

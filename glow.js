@@ -2,27 +2,41 @@ let glowCanvas;
 let canvasContainer;
 let particles = [];
 let breath = 0;
-//let sound;
-//let isPlaying = false;
+let sound;
+let isPlaying = false;
 
-//function preload() {
- // sound = loadSound('./assets/softwind.mp3');
-//}
+function preload() {
+ sound = loadSound('./assets/RustlingLeaves.wav');
+}
 
-//function toggleSound() {
-  //if (!isPlaying) {
-  //  sound.setVolume(0.12);
-   // sound.loop();
-   // isPlaying = true;
-   // document.getElementById("sound-toggle").innerText = "Sound: on";
-  //} else {
-   // sound.stop();
-   // isPlaying = false;
-   // document.getElementById("sound-toggle").innerText = "Sound: off";
- // }
+function toggleSound() {
+  const soundToggle = document.getElementById("sound-toggle");
+  const soundState = soundToggle.querySelector(".sound-toggle__state");
 
-  //sound.setVolume(0.08);
-//}
+  if (!isPlaying) {
+    sound.setVolume(0.12);
+    sound.loop();
+    isPlaying = true;
+
+    soundToggle.classList.add("is-on");
+    soundToggle.setAttribute("aria-pressed", "true");
+
+    if (soundState) {
+      soundState.textContent = "on";
+    }
+
+  } else {
+    sound.stop();
+    isPlaying = false;
+
+    soundToggle.classList.remove("is-on");
+    soundToggle.setAttribute("aria-pressed", "false");
+
+    if (soundState) {
+      soundState.textContent = "off";
+    }
+  }
+}
 
 function setup() {
   canvasContainer = document.getElementById("glow-canvas");
@@ -71,7 +85,7 @@ function drawSoftGlow(x, y, size, breathAmount) {
   let ctx = drawingContext;
 
   // The stillness makes the glow larger, but not heavier
-  let softness = map(breathAmount, 0, 1, 1, 1.18);
+  let softness = map(breathAmount, 0, 1, 1, 1.30);
 
   ctx.save();
   ctx.globalCompositeOperation = "screen";
