@@ -1184,7 +1184,6 @@ body.glow-page-body .site-footer {
     overscroll-behavior-x: none;
   }
 
-@media (max-width: 600px) {
   body.glow-page-body .glow-intro {
     transform: translateY(-6rem);
   }
@@ -1742,5 +1741,4 @@ color: var(--text-main);
     display: inline-block;
     white-space: normal;
   }
-}
 }
