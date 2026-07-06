@@ -6,7 +6,7 @@ let sound;
 let isPlaying = false;
 
 function preload() {
- sound = loadSound('./assets/RustlingLeaves.wav');
+ sound = loadSound('./assets/meditativetiger-deep-healing-frequency-459500.mp3');
 }
 
 function toggleSound() {
@@ -14,7 +14,7 @@ function toggleSound() {
   const soundState = soundToggle.querySelector(".sound-toggle__state");
 
   if (!isPlaying) {
-    sound.setVolume(0.12);
+    sound.setVolume(0.18);
     sound.loop();
     isPlaying = true;
 
@@ -22,7 +22,7 @@ function toggleSound() {
     soundToggle.setAttribute("aria-pressed", "true");
 
     if (soundState) {
-      soundState.textContent = "on";
+      soundState.textContent = "On";
     }
 
   } else {
@@ -33,7 +33,7 @@ function toggleSound() {
     soundToggle.setAttribute("aria-pressed", "false");
 
     if (soundState) {
-      soundState.textContent = "off";
+      soundState.textContent = "Off";
     }
   }
 }
@@ -61,7 +61,7 @@ function draw() {
   clear();
 
   let centerX = width / 2;
-  let centerY = height * 0.55;
+  let centerY = height * 0.52;
 
   let baseGlowSize = min(width, height) * 0.60;
 
@@ -84,62 +84,69 @@ drawSoftGlow(centerX, centerY, glowSize, breath);
 function drawSoftGlow(x, y, size, breathAmount) {
   let ctx = drawingContext;
 
-  // The stillness makes the glow larger, but not heavier
-  let softness = map(breathAmount, 0, 1, 1, 1.30);
+  // Adds a slight delay so the outer glow blooms just after the breath expands
+  let delayedBloom = map(sin(frameCount * 0.015 - 0.45), -1, 1, 0, 1);
+
+  // Keeps the breathing movement gentle
+  let coreSoftness = map(breathAmount, 0, 1, 1, 1.18);
+  let outerSoftness = map(delayedBloom, 0, 1, 1, 1.34);
 
   ctx.save();
   ctx.globalCompositeOperation = "screen";
 
-  // Outer atmosphere — very large, very faint
-  let outerRadius = (size * 0.82) * softness;
+  // Layer 1: Outer rose atmosphere
+  let outerRadius = size * 1.05 * outerSoftness;
+  let outerAlpha = map(delayedBloom, 0, 1, 0.055, 0.12);
+
   let outerGradient = ctx.createRadialGradient(
     x, y, 0,
     x, y, outerRadius
   );
 
-  outerGradient.addColorStop(0, "rgba(255, 238, 205, 0.09)");
-  outerGradient.addColorStop(0.22, "rgba(252, 228, 190, 0.065)");
-  outerGradient.addColorStop(0.46, "rgba(248, 218, 180, 0.032)");
-  outerGradient.addColorStop(0.68, "rgba(248, 218, 180, 0.012)");
-  outerGradient.addColorStop(0.84, "rgba(248, 218, 180, 0)");
-  outerGradient.addColorStop(1, "rgba(248, 218, 180, 0)");
+  outerGradient.addColorStop(0, "rgba(247, 197, 173, " + outerAlpha + ")");
+  outerGradient.addColorStop(0.25, "rgba(222, 161, 147, 0.075)");
+  outerGradient.addColorStop(0.52, "rgba(203, 135, 134, 0.045)");
+  outerGradient.addColorStop(0.78, "rgba(183, 110, 121, 0.018)");
+  outerGradient.addColorStop(1, "rgba(183, 110, 121, 0)");
 
   ctx.fillStyle = outerGradient;
   ctx.beginPath();
   ctx.arc(x, y, outerRadius, 0, TWO_PI);
   ctx.fill();
 
-  // Middle warmth — soft body of the glow
-  let middleRadius = (size * 0.50) * softness;
+  // Layer 2: Middle peach glow
+  let middleRadius = size * 0.62 * coreSoftness;
+  let middleAlpha = map(breathAmount, 0, 1, 0.12, 0.24);
+
   let middleGradient = ctx.createRadialGradient(
     x, y, 0,
     x, y, middleRadius
   );
 
-  let middleAlpha = map(breathAmount, 0, 1, 0.12, 0.18);
-
-  middleGradient.addColorStop(0, `rgba(255, 240, 205, ${middleAlpha})`);
-  middleGradient.addColorStop(0.38, "rgba(252, 228, 190, 0.09)");
-  middleGradient.addColorStop(0.72, "rgba(248, 215, 175, 0.035)");
-  middleGradient.addColorStop(1, "rgba(248, 215, 175, 0)");
+  middleGradient.addColorStop(0, "rgba(255, 238, 205, " + middleAlpha + ")");
+  middleGradient.addColorStop(0.32, "rgba(247, 197, 173, 0.13)");
+  middleGradient.addColorStop(0.62, "rgba(222, 161, 147, 0.07)");
+  middleGradient.addColorStop(0.86, "rgba(203, 135, 134, 0.028)");
+  middleGradient.addColorStop(1, "rgba(203, 135, 134, 0)");
 
   ctx.fillStyle = middleGradient;
   ctx.beginPath();
   ctx.arc(x, y, middleRadius, 0, TWO_PI);
   ctx.fill();
 
-  // Tiny inner ember — keeps it from becoming a flat gray fog
-  let coreRadius = size * 0.12;
+  // Layer 3: Inner ember
+  let coreRadius = size * 0.15;
+  let coreAlpha = map(breathAmount, 0, 1, 0.45, 0.75);
+
   let coreGradient = ctx.createRadialGradient(
     x, y, 0,
     x, y, coreRadius
   );
 
-  let coreAlpha = map(breathAmount, 0, 1, 0.16, 0.24);
-
-  coreGradient.addColorStop(0, `rgba(255, 246, 218, ${coreAlpha})`);
-  coreGradient.addColorStop(0.55, "rgba(255, 229, 190, 0.07)");
-  coreGradient.addColorStop(1, "rgba(255, 229, 190, 0)");
+  coreGradient.addColorStop(0, "rgba(255, 244, 215, " + coreAlpha + ")");
+  coreGradient.addColorStop(0.35, "rgba(255, 226, 190, 0.18)");
+  coreGradient.addColorStop(0.68, "rgba(247, 197, 173, 0.065)");
+  coreGradient.addColorStop(1, "rgba(247, 197, 173, 0)");
 
   ctx.fillStyle = coreGradient;
   ctx.beginPath();
@@ -151,7 +158,12 @@ function drawSoftGlow(x, y, size, breathAmount) {
 
 
 function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+  if (!canvasContainer) return;
+
+  const containerWidth = canvasContainer.offsetWidth;
+  const containerHeight = canvasContainer.offsetHeight;
+
+  resizeCanvas(containerWidth, containerHeight);
 }
 
 // Particles
