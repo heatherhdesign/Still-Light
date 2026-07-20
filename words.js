@@ -30,22 +30,52 @@ const words = [
   "Some things can remain unfinished.",
   "You can set things down, even briefly.",
   "Not everything needs to be resolved today.",
-  "There is room to pause."
+  "There is room to pause.",
+  "You have survived every day that brought you here.",
+  "It is okay not to have the answer.",
+  "You are allowed to rest before you are ready.",
+  "You can come back to this later.",
+  "There is no need to explain yourself here.",
+  "You are not behind.",
+  "This moment belongs to you.",
+  "You can let this be enough for now.",
+  "There is no timeline you need to follow.",
+  "You can be uncertain and still be okay.",
+  "You do not have to make sense of everything.",
+  "You can simply notice what is here.",
+  "You are welcome here, exactly as you are.",
+  "Not every feeling requires a response.",
+  "There is nothing you need to prove.",
+  "You can pause without falling behind.",
+  "Even quiet moments matter.",
+  "This can be a place to set things down.",
+  "You are allowed to begin again.",
+  "Some things become lighter when carried gently."
 ];
 
 let container;
 let lastWord = "";
 let activePositions = [];
+let availableWords = [];
 
 function getRandomWord() {
-  let selectWord = words[Math.floor(Math.random() * words.length)];
 
-  while (selectWord === lastWord) {
-    selectWord = words[Math.floor(Math.random() * words.length)];
+  // Refill and reshuffle when empty
+  if (availableWords.length === 0) {
+    availableWords = shuffleArray([...words]);
   }
 
-  lastWord = selectWord;
-  return selectWord;
+  return availableWords.pop();
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
 }
 
 function getPosition(wordWidth, wordHeight) {
