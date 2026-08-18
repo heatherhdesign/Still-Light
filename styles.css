@@ -636,7 +636,8 @@ body.quiet-gathering-body .qg-exit-content {
 body.quiet-gathering-body .qg-constellation-screen {
   position: relative;
   width: 100%;
-  min-height: calc(100svh - 7.5rem);
+  height: calc(100dvh - 4.5rem);
+  min-height: 0;
   overflow: hidden;
 }
 
