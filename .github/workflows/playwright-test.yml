@@ -56,9 +56,11 @@ jobs:
 
           console.log('Clicked Enter Quietly');
 
-          await page.waitForTimeout(3000);
+          console.log('Waiting in constellation...');
 
-          await browser.close();
+          await page.waitForTimeout(30000);
+
+          console.log('Constellation wait complete.');
           EOF
 
       - name: Run Test
