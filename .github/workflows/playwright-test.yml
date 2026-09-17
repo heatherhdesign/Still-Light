@@ -46,6 +46,16 @@ jobs:
 
           console.log('Clicked Step Inside');
 
+          await page.waitForTimeout(2000);
+
+          console.log('Looking for Enter Quietly button...');
+
+          await page.getByRole('button', {
+          name: /enter quietly/i
+          }).click();
+
+          console.log('Clicked Enter Quietly');
+
           await page.waitForTimeout(3000);
 
           await browser.close();
