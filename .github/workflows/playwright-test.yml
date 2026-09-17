@@ -3,6 +3,9 @@ name: Playwright Test
 on:
   workflow_dispatch:
 
+  schedule:
+    - cron: '0 12 */3 * *'
+
 jobs:
   test:
     runs-on: ubuntu-latest
