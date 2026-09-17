@@ -1,0 +1,38 @@
+name: Playwright Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install playwright
+          npx playwright install chromium
+
+      - name: Create Test Script
+        run: |
+          echo "import { chromium } from 'playwright';" > test.mjs
+          echo "const browser = await chromium.launch({ headless: true });" >> test.mjs
+          echo "const page = await browser.newPage();" >> test.mjs
+          echo "await page.goto('https://still-light.org/gathering.html');" >> test.mjs
+          echo "await page.waitForTimeout(3000);" >> test.mjs
+          echo "console.log('Looking for Step Inside button...');" >> test.mjs
+          echo "await page.getByRole('button', { name: /step inside/i }).click();" >> test.mjs
+          echo "console.log('Clicked Step Inside');" >> test.mjs
+          echo "await page.waitForTimeout(3000);" >> test.mjs
+          echo "await browser.close();" >> test.mjs
+
+      - name: Run Test
+        run: node test.mjs
